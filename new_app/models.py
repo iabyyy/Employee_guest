@@ -8,8 +8,23 @@ class Login(AbstractUser):
 
 
 class Employee(models.Model):
-    User = models.ForeignKey(Login,on_delete=models.CASCADE,related_name='customer')
+    User = models.ForeignKey(Login,on_delete=models.CASCADE,related_name='employee')
     name = models.CharField(max_length=100)
     contact_no = models.CharField(max_length=10)
     email = models.EmailField()
     address = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class Guest(models.Model):
+    User = models.ForeignKey(Login, on_delete=models.CASCADE, related_name='guest')
+    name = models.CharField(max_length=100)
+    contact_no = models.CharField(max_length=10)
+    email = models.EmailField()
+    address = models.TextField()
+
+    def __str__(self):
+        return self.name
+

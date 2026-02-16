@@ -2,7 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Registration</title>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Registration</title>
 
     <style>
         body {
@@ -95,7 +104,7 @@
 <body>
 
 <div class="container">
-    <h2>Employee Registration</h2>
+    <h2>Guest Registration</h2>
 
     <form method="POST">
         {% csrf_token %}
@@ -103,7 +112,7 @@
         <h3>Login Details</h3>
         {{ form1}}
 
-        <h3>Employee Details</h3>
+        <h3>Guest Details</h3>
         {{ form2}}
 
         <button type="submit">Register</button>
