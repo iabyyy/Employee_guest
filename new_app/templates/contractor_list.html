@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contractor List</title>
+    <!-- Bootstrap CSS (optional, for styling) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Home Button -->
+        <a href="{% url 'admin_profile' %}" class="btn btn-primary mb-3">Home</a>
+
+        <h1>Contractor List</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SL NO</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">NUMBER</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">ADDRESS</th>
+                    <th scope="col">DELETE</th>
+                    <th scope="col">UPDATE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in contractor_list %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.contact_no }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>
+                        <a href="{% url 'contractor_delete' i.id %}" class="btn btn-danger">DELETE</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'contractor_update' i.id %}" class="btn btn-success">UPDATE</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

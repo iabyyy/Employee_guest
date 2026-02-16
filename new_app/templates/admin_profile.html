@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF Example</title>
+    <style>
+        /* General body style */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top navbar */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 200px; /* To avoid overlap with side navbar */
+            right: 0;
+            height: 60px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        /* Side navbar */
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            display: block;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        /* Main content area */
+        .main {
+            margin-left: 200px; /* Same as the width of the sidebar */
+            margin-top: 60px;  /* Height of the top navbar */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Side Navbar -->
+    <div class="sidenav">
+        <a href="{% url 'contractor_list' %}">CONTRACTOR LIST</a>
+        <a href="">PROJECT LIST</a>
+        <a href="">SETTINGS</a>
+        <a href="">LOGOUT</a>
+    </div>
+
+    <!-- Top Navbar -->
+    <div class="topnav">
+        ADMIN
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>Welcome, Admin!</h1>
+        <p>This is the dashboard main content area.</p>
+    </div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from new_app.models import Login, Employee, Guest
+from new_app.models import Login, Guest, Contractor, PostJob
 
 
 class LoginForm(UserCreationForm):
@@ -9,13 +9,20 @@ class LoginForm(UserCreationForm):
         fields = ('username', 'password1', 'password2')
 
 
-class EmployeeForm(forms.ModelForm):
+class ContractorForm(forms.ModelForm):
     class Meta:
-        model = Employee
-        exclude = ('User',)
+        model = Contractor
+        exclude = ('user',)
 
 
 class GuestForm(forms.ModelForm):
     class Meta:
         model = Guest
         exclude = ('User',)
+
+
+
+class PostJobForm(forms.ModelForm):
+    class Meta:
+        model = PostJob
+        exclude = ("User",)
